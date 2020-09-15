@@ -12,6 +12,9 @@ projects
 
 Clone this repository and delete .git
 
+`git clone git@github.com:symbiote/docker-runtime.git project-name && rm -rf project-name/.git`
+
+
 ### Step 2
 
 Create a `docker.env` - use docker.env.sample as a guide - in your project 
@@ -388,27 +391,7 @@ Notes:
 [//]: # (After starting the debugger in your IDE, you'll need to open your browser using a URL parameter as xdebug is _not_ configured for auto-run, eg)
 [//]: # (https://mysite.symlocal/?XDEBUG_SESSION_START=1)
 
-## Building the images
 
-Contains Docker file definitions for
-
-* Apache2
-* PHP FPM
-* Selenium
-* Node (in particular, yarn toolset)
-
-Apache2 is built from a base ubuntu 16.04, rather than library/httpd. This maintains consistency with Symbiote's standard environment configuration.
-
-Each sub-folder contains their own specific dockerfile definitions.
-
-Built images can then be pushed to docker-hub; please speak to marcus@symbiote.com.au before doing so!
-
-The recommended docker-compose structure uses the above, as well as references to the following from upstream docker repositories:
-
-* MySQL
-* mailhog
-* Adminer
-* Elastic Search
 
 ## Customising images on a per-project basis
 
