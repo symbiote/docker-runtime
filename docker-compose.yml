@@ -67,10 +67,10 @@ services:
       - '.:/var/www/html'
       - ${DOCKER_PROJECT_PATH}/logs:/var/log/php
       - ${DOCKER_PROJECT_PATH}/logs:/var/log/silverstripe
-    command: [
-      "php",
-      "sqs-jobqueue/central-runner.php",
-    ]
+    command: >
+      bash -c "mkdir -p /var/www/html/mysite/fake-sqs-queues &&
+              chown 1000:1000 /var/www/html/mysite/fake-sqs-queues &&
+              php vendor/symbiote/silverstripe-sqs-jobqueue/central-runner.php"
 
   queuedjobs:
     image: "symbiote/php-cli:${DOCKER_PHP_VERSION}"
